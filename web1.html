@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guest House</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            color: #333;
+            background-image: url('C:\Users\USER\Downloads\pexels-pixabay-271643.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .header {
+            background-color: #222;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header .logo h1 {
+            margin: 0;
+        }
+
+        .header nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 10px 0 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .header nav ul li {
+            margin: 0 15px;
+        }
+
+        .header nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .header nav ul li a:hover {
+            color: #4CAF50;
+        }
+
+        .hero-section {
+            background: url('hero-bg.jpg') no-repeat center center/cover;
+            color: #fff;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .hero-content h2 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .hero-content p {
+            font-size: 24px;
+            margin-bottom: 30px;
+        }
+
+        .hero-content .btn {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: background-color 0.3s;
+        }
+
+        .hero-content .btn:hover {
+            background-color: #45a049;
+        }
+
+        .main-content {
+            padding: 20px;
+        }
+
+        .main-content section {
+            margin-bottom: 30px;
+        }
+
+        .main-content img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .about-section {
+            background-color: #f9f9f9;
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .about-section .features {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 30px;
+        }
+
+        .about-section .feature {
+            width: 30%;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .rooms-section .room {
+            display: flex;
+            margin: 20px 0;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .rooms-section .room img {
+            width: 40%;
+            height: auto;
+        }
+
+        .rooms-section .room-info {
+            padding: 20px;
+            background-color: #fff;
+        }
+
+        .services-section {
+            background-color: #f1f1f1;
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .service {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .service img {
+            width: 80px;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        .gallery-section {
+            padding: 50px 20px;
+            background-color: #fff;
+            text-align: center;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .gallery-grid img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-section form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .contact-section form input, .contact-section form textarea {
+            width: 100%;
+            max-width: 500px;
+            margin: 10px 0;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .contact-section form button {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background-color 0.3s;
+        }
+
+        .contact-section form button:hover {
+            background-color: #45a049;
+        }
+
+        .footer {
+            background-color: #222;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .footer a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+.booking-section {
+    background-color: #f9f9f9;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.booking-section h2 {
+    margin-bottom: 30px;
+    font-size: 24px;
+    color: #333;
+}
+
+.booking-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.booking-form input, .booking-form select {
+    width: 100%;
+    max-width: 400px;
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.booking-form button {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="logo">
+            <h1>Guest House</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#rooms">Rooms</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content Section -->
+    <div class="main-content">
+        <section>
+        <center>
+            <h2>Welcome to Our Website</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum.</p>
+            <p>Maecenas tincidunt, nisl id fringilla sagittis, turpis purus sodales est, vel euismod lacus velit ut mi.</p>
+</center>
+        </section>
+
+        <section>
+            <h2>Featured Image</h2>
+            <img src="C:\Users\USER\Downloads\pexels-fotoaibe-1743231.jpg" alt="Featured">
+        </section>
+    </div>
+
+    <!-- Home Section -->
+    <section id="home" class="hero-section">
+        <div class="hero-content">
+            <h2>Your Comfort, Our Priority</h2>
+            <p>Experience luxury and comfort in our beautifully designed rooms.</p>
+            <a href="#rooms" class="btn">View Rooms</a>
+            <br>
+            <br>
+            <img src="C:\Users\USER\Downloads\pexels-jvdm-1457842.jpg" alt="hello" width="500" height="500">
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="content-container">
+            <h2>About Us</h2>
+            <p>Our guest house offers top-notch services to ensure a memorable stay. We are located in the heart of the city, providing easy access to major attractions. Whether you're here for business or leisure, our friendly staff is dedicated to making your stay comfortable and enjoyable.</p>
+            <div class="features">
+                <div class="feature">
+                    <h3>Prime Location</h3>
+                    <p>Located close to key attractions, restaurants, and shopping centers.</p>
+                </div>
+                <div class="feature">
+                    <h3>Luxury Rooms</h3>
+                    <p>Elegant rooms with modern amenities for your comfort and relaxation.</p>
+                </div>
+                <div class="feature">
+                    <h3>Exceptional Service</h3>
+                    <p>Our staff is available 24/7 to cater to all your needs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Section -->
+    <section class="booking-section">
+        <h2>Book Your Stay</h2>
+        <form class="booking-form">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <input type="tel" name="phone" placeholder="Your Phone Number" required>
+            <input type="date" name="check-in" required>
+            <input type="date" name="check-out" required>
+            <select name="hotel" required>
+                <option value="">Select a Hotel</option>
+                <option value="hotel1">Hotel 1</option>
+                <option value="hotel2">Hotel 2</option>
+                <option value="hotel3">Hotel 3</option>
+                <!-- Add more hotel options here -->
+            </select>
+            <button type="submit">Book Now</button>
+        </form>
+    </section>
+
+    <!-- Rooms Section -->
+    <section id="rooms" class="rooms-section">
+        <div class="content-container">
+            <h2>Our Rooms</h2>
+            <div class="room">
+                <img src="C:\Users\USER\Downloads\pexels-pixabay-164595.jpg" alt="Deluxe Room">
+                <div class="room-info">
+                    <h3>Deluxe Room</h3>
+                    <p>Spacious and comfortable with all modern amenities. Ideal for couples or solo travelers.</p>
+                </div>
+            </div>
+            <div class="room">
+                <img src="C:\Users\USER\Downloads\pexels-pixabay-262048.jpg" alt="Suite">
+                <div class="room-info">
+                    <h3>Suite</h3>
+                    <p>Luxury redefined, with stunning views, a living area, and premium services. Perfect for families or those looking for an extra touch of luxury.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services-section">
+        <div class="content-container">
+            <h2>Our Services</h2>
+            <div class="services-grid">
+                <div class="service">
+                    <img src="C:\Users\USER\Downloads\Free-Wi-Fi-logos-vector-design-01.jpg" alt="Free Wi-Fi">
+                    <h3>Free Wi-Fi</h3>
+                    <p>Stay connected with our complimentary high-speed internet access.</p>
+                </div>
+                <div class="service">
+                    <img src="C:\Users\USER\Downloads\bfast.webp" alt="Complimentary Breakfast">
+                    <h3>Complimentary Breakfast</h3>
+                    <p>Enjoy a delicious breakfast served every morning to start your day right.</p>
+                </div>
+                <div class="service">
+                    <img src="C:\Users\USER\Downloads\parking" alt="Free Parking">
+                    <h3>Free Parking</h3>
+                    <p>We offer free parking for our guests, ensuring convenience and security for your vehicle.</p>
+                </div>
+                <div class="service">
+                    <img src="C:\Users\USER\Downloads\fit" alt="Fitness Center">
+                    <h3>Fitness Center</h3>
+                    <p>Keep up with your workout routine in our well-equipped fitness center.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery-section">
+        <div class="content-container">
+            <h2>Gallery</h2>
+            <div class="gallery-grid">
+                <img src="C:\Users\USER\Downloads\pexels-pixabay-210265.jpg" alt="Gallery Image 1">
+                <img src="C:\Users\USER\Downloads\pexels-jvdm-1457842.jpg" alt="Gallery Image 2">
+                <img src="C:\Users\USER\Downloads\pexels-fotoaibe-1743231.jpg" alt="Gallery Image 3">
+                <img src="C:\Users\USER\Downloads\pexels-pixabay-271643.jpg" alt="Gallery Image 4">
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="content-container">
+            <h2>Contact Us</h2>
+            <form>
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <textarea placeholder="Your Message" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="content-container">
+            <p>&copy; 2024 Guest House. All Rights Reserved.</p>
+            <p><a href="#home">Back to Top</a></p>
+        </div>
+    </footer>
+</body>
+</html>
